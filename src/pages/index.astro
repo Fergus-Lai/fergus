@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
 import svgReference from '../../public/logo.svg'
+import { Icon } from 'astro-icon'
 ---
 
 <Layout title="Fergus Lai">
@@ -9,17 +10,37 @@ import svgReference from '../../public/logo.svg'
         class="flex h-screen w-screen items-center justify-center bg-gradient-to-br from-violet-950 to-purple-800"
     >
         <div class="flex">
-            <img src={svgReference.src} class="h-24 w-24" />
-            <div class="flex h-full flex-col items-start justify-start">
-                <div class="text-2xl font-bold text-slate-50">Fergus Lai</div>
-                <a
-                    class="text-lg text-zinc-50 hover:underline focus:underline"
-                    href="/blog">Blog</a
-                >
-                <a
-                    class="text-lg text-zinc-50 hover:underline focus:underline"
-                    href="/projects">Projects</a
-                >
+            <img src={svgReference.src} class="h-48 w-48" alt="logo" />
+            <div class="flex h-48 flex-col justify-between">
+                <div class="flex flex-col">
+                    <div class="text-2xl font-bold text-slate-50">
+                        Fergus Lai
+                    </div>
+                    <a
+                        class="text-lg text-zinc-50 hover:underline focus:underline"
+                        href="/blog">Blog</a
+                    >
+                    <a
+                        class="text-lg text-zinc-50 hover:underline focus:underline"
+                        href="/projects">Projects</a
+                    >
+                    <a
+                        class="text-lg text-zinc-50 hover:underline focus:underline"
+                        href="/me">About Me</a
+                    >
+                </div>
+                <div class="flex h-8 w-full flex-row gap-2">
+                    <a
+                        class="h-8 w-8 text-zinc-50"
+                        href="https://github.com/Fergus-Lai"
+                        ><Icon name="mdi:github" /></a
+                    >
+                    <a
+                        class="h-8 w-8 text-zinc-50"
+                        href="https://www.linkedin.com/in/fergus-lai/"
+                        ><Icon name="mdi:linkedin" /></a
+                    >
+                </div>
             </div>
         </div>
     </main>
