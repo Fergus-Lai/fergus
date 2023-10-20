@@ -1,0 +1,63 @@
+---
+import Icon from "astro-icon";
+import Layout from "../layouts/Layout.astro";
+import Back from "../components/Back.astro";
+---
+
+<Layout title="About Me | Fergus Lai">
+    <main class="flex h-full w-full flex-col gap-4 p-4 text-zinc-50">
+        <div class="flex flex-row gap-2 text-2xl font-bold">
+            <Back /> Fergus Lai
+        </div>
+        <div>Developer</div>
+        <div class="text-xl font-bold text-zinc-50">About Me</div>
+        <div>
+            A second-year Computer Science student at Durham University, seeking
+            to secure a Summer internship that will develop my problem solving
+            and communication skills. I hope the experience provides me the
+            opportunity to explore my passion in Web development and gain a
+            deeper insight into industry practices
+        </div>
+        <div class="text-xl font-bold text-zinc-50">Skills</div>
+        <div class="flex w-full flex-row">
+            <div class="w-1/4">Languages</div>
+            <div class="w-3/4">
+                Python, JavaScript, TypeScript, Dart, HTML, CSS, SQL
+            </div>
+        </div>
+        <div class="flex w-full flex-row">
+            <div class="w-1/4">Tools</div>
+            <div class="w-3/4">
+                Git, NumPy, Pandas, Node.js, REST API, Express, Bootstrap,
+                Tailwind, Matplotlib, Flutter, Firebase, Docker, PlanetScale,
+                Vercel, Google Cloud Run, ReactJS, Next.js, VueJS, Nuxt.js,
+                Prisma, Socket.io
+            </div>
+        </div>
+        <div class="flex w-full flex-row">
+            <div class="w-1/4">Industry Skills</div>
+            <div class="w-3/4">
+                Web development, Software Development, Problem Solving,
+                Algorithm and Data Structures
+            </div>
+        </div>
+        <div class="text-xl font-bold text-zinc-50">Contact</div>
+        <div class="flex flex-row gap-2">
+            <a
+                class="flex flex-row items-center gap-2 hover:underline focus:underline"
+                href="mailto:ferguslai724@gmail.com"
+                ><Icon name="mdi:email" class="h-8 w-8" /> Email</a
+            >
+            <a
+                class="flex flex-row items-center gap-2 hover:underline focus:underline"
+                href="https://github.com/Fergus-Lai"
+                ><Icon name="mdi:github" class="h-8 w-8" /> Github</a
+            >
+            <a
+                class="flex flex-row items-center gap-2 hover:underline focus:underline"
+                href="https://www.linkedin.com/in/fergus-lai/"
+                ><Icon name="mdi:linkedin" class="h-8 w-8" /> LinkedIn</a
+            >
+        </div>
+    </main>
+</Layout>
