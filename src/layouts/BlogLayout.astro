@@ -1,0 +1,64 @@
+---
+import Back from "../components/Back.astro";
+interface Props {
+    frontmatter: {
+        title: string;
+        description: string;
+        date: string;
+    };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html
+    lang="en"
+    class="h-screen w-screen bg-gradient-to-br from-violet-950 to-purple-800"
+>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{`${frontmatter.title} | Fergus's Blog`}</title>
+    </head>
+    <body
+        class="prose prose-headings:text-zinc-50 flex w-full max-w-none flex-col p-2 text-zinc-50"
+    >
+        <h2 class="m-0 flex flex-row gap-2">
+            <Back backPage="/blog" />{frontmatter.title}
+        </h2>
+        <h4>Date: {frontmatter.date}</h4>
+        <i class="pb-2">{frontmatter.title}</i>
+        <hr class="solid m-0" /><slot />
+    </body>
+    <style is:global>
+        :root {
+            --accent: 136, 58, 234;
+            --accent-light: 224, 204, 250;
+            --accent-dark: 49, 10, 101;
+            --accent-gradient: linear-gradient(
+                45deg,
+                rgb(var(--accent)),
+                rgb(var(--accent-light)) 30%,
+                white 60%
+            );
+        }
+        html {
+            font-family: system-ui, sans-serif;
+        }
+        code {
+            font-family:
+                Menlo,
+                Monaco,
+                Lucida Console,
+                Liberation Mono,
+                DejaVu Sans Mono,
+                Bitstream Vera Sans Mono,
+                Courier New,
+                monospace;
+        }
+    </style>
+</html>

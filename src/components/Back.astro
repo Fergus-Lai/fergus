@@ -1,7 +1,13 @@
 ---
 import Icon from "astro-icon";
+
+interface Props {
+    backPage: string;
+}
+
+const { backPage } = Astro.props;
 ---
 
-<a href="/"
+<a href={backPage}
     ><Icon class="h-8 w-8 text-zinc-50" name="mdi:keyboard-backspace" /></a
 >
