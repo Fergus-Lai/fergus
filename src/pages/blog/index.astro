@@ -1,5 +1,44 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import Back from "../../components/Back.astro";
+const allPosts = await Astro.glob("./post/*.md");
+const sortedPosts = allPosts
+    .sort(
+        (a, b) =>
+            new Date(b.frontmatter.date).valueOf() -
+            new Date(a.frontmatter.date).valueOf()
+    )
+    .filter((p) => p.frontmatter.hidden !== true);
+sortedPosts.forEach((post) => console.log(post.file));
 ---
 
-<Layout title="Blog | Fergus Lai" />
+<Layout title="Blog | Fergus Lai">
+    <div class="flex h-full w-full flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center">
+            <h1 class="text-3xl font-bold text-zinc-50">Fergus's Blog</h1>
+            <h3 class="text-xl text-zinc-50">Write About Stuff</h3>
+            <a
+                href="/"
+                class="text-xl text-zinc-50 hover:underline focus:underline"
+                >Back To Home</a
+            >
+        </div>
+
+        {
+            sortedPosts.map((post) => {
+                const path = post.file.split("/").at(-1)?.replace(".md", "");
+                if (path) {
+                    return (
+                        <BlogCard
+                            title={post.frontmatter.title}
+                            description={post.frontmatter.description}
+                            date={post.frontmatter.date}
+                            path={path}
+                        />
+                    );
+                }
+            })
+        }
+    </div>
+</Layout>

@@ -25,13 +25,13 @@ const { frontmatter } = Astro.props;
         <title>{`${frontmatter.title} | Fergus's Blog`}</title>
     </head>
     <body
-        class="prose prose-headings:text-zinc-50 flex w-full max-w-none flex-col p-2 text-zinc-50"
+        class="prose flex w-full max-w-none flex-col p-2 text-zinc-50 prose-headings:text-zinc-50"
     >
         <h2 class="m-0 flex flex-row gap-2">
             <Back backPage="/blog" />{frontmatter.title}
         </h2>
         <h4>Date: {frontmatter.date}</h4>
-        <i class="pb-2">{frontmatter.title}</i>
+        <i class="pb-2">{frontmatter.description}</i>
         <hr class="solid m-0" /><slot />
     </body>
     <style is:global>
