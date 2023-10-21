@@ -11,10 +11,12 @@ const startDateString = startDate.toLocaleDateString("en-UK", {
     year: "numeric",
     month: "short",
 });
-const endDateString = endDate.toLocaleDateString("en-UK", {
-    year: "numeric",
-    month: "short",
-});
+const endDateString = endDate
+    ? endDate.toLocaleDateString("en-UK", {
+          year: "numeric",
+          month: "short",
+      })
+    : "Current";
 ---
 
 <a
@@ -22,10 +24,10 @@ const endDateString = endDate.toLocaleDateString("en-UK", {
     href={github}
 >
     <div class="flex flex-row justify-between gap-4 text-3xl font-bold">
-        <div class="flex flex-row items-center">
+        <div class="flex w-3/4 flex-row items-center">
             {title}
         </div>
-        <div>{startDateString} - {endDateString}</div>
+        <div class="1/4">{startDateString} - {endDateString}</div>
     </div>
     <div class="text-xl font-bold">Tech Stack: {techStack}</div>
     <div>{Astro.props.project.body}</div>
