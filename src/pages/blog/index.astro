@@ -4,11 +4,14 @@ import BlogCard from "../../components/BlogCard.astro";
 import Back from "../../components/Back.astro";
 const allPosts = await Astro.glob("./post/*.md");
 const sortedPosts = allPosts
-    .sort(
-        (a, b) =>
-            new Date(b.frontmatter.date).valueOf() -
-            new Date(a.frontmatter.date).valueOf()
-    )
+    .sort((a, b) => {
+        const aDate = a.frontmatter.date.split("/");
+        const bDate = b.frontmatter.date.split("/");
+        return (
+            new Date(bDate[2], bDate[1] - 1, bDate[0]).getTime() -
+            new Date(aDate[2], aDate[1] - 1, aDate[0]).getTime()
+        );
+    })
     .filter((p) => p.frontmatter.hidden !== true);
 sortedPosts.forEach((post) => console.log(post.file));
 ---
