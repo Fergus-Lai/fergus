@@ -19,9 +19,9 @@ const endDateString = endDate.toLocaleDateString("en-UK", {
 <a
     class="transistion sel my-2 flex w-11/12 flex-col rounded-lg bg-purple-800 p-2 text-zinc-50 delay-75 duration-150 ease-in-out"
 >
-    <div class="flex flex-row gap-4 text-3xl font-bold">
-        <div>{startDateString} - {endDateString}</div>
+    <div class="flex flex-row justify-between gap-4 text-3xl font-bold">
         <div>{title}</div>
+        <div>{startDateString} - {endDateString}</div>
     </div>
     <div class="text-xl font-bold">Tech Stack: {techStack}</div>
     <div>{Astro.props.project.body}</div>
