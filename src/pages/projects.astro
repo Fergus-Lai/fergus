@@ -1,5 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import ProjectCard from "../components/ProjectCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("project");
+const sortedProjects = allProjects.sort((a, b) => {
+    return b.data.startDate.getTime() - a.data.startDate.getTime();
+});
 ---
 
-<Layout title="Projects | Fergus" />
+<Layout title="Projects | Fergus">
+    <div class="flex flex-col items-center text-zinc-50">
+        <div class="flex flex-col items-center justify-center">
+            <h1 class="text-3xl font-bold text-zinc-50">Projects</h1>
+            <a
+                href="/"
+                class="text-xl text-zinc-50 hover:underline focus:underline"
+                >Back To Home</a
+            >
+        </div>
+        {sortedProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+</Layout>
